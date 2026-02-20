@@ -37,6 +37,7 @@ async def register(user_in: UserCreate, db: AsyncIOMotorDatabase = Depends(get_d
         "email": user_in.email,
         "hashed_password": get_password_hash(user_in.password),
         "full_name": user_in.full_name,
+        "role": "user",  # Default role
         "is_active": True,
         "is_superuser": False
     }

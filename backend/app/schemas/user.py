@@ -4,7 +4,7 @@ from app.models.common import PyObjectId
 
 class UserCreate(BaseModel):
     email: EmailStr
-    password: str = Field(..., min_length=8)
+    password: str = Field(..., min_length=8, description="Password must be at least 8 characters")
     full_name: Optional[str] = None
 
 class UserLogin(BaseModel):
@@ -15,4 +15,8 @@ class UserResponse(BaseModel):
     id: PyObjectId = Field(alias="_id")
     email: EmailStr
     full_name: Optional[str] = None
+    role: str = Field(default="user")
     is_active: bool
+    
+    class Config:
+        from_attributes = True
