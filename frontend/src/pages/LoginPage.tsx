@@ -4,7 +4,7 @@ import { authService } from '../lib/services';
 import { Button } from '../components/Button';
 import { useToast } from '../components/Toast';
 
-export default function LoginPage() {
+export function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
